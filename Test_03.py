@@ -1,5 +1,6 @@
 import heapq
 
+# Клас графа
 class Graph:
     def __init__(self):
         self.edges = {}
@@ -11,8 +12,9 @@ class Graph:
 
     def add_edge(self, from_node, to_node, weight):
         self.edges[from_node].append((to_node, weight))
-        #self.edges[to_node].append((from_node, weight))    
+        self.edges[to_node].append((from_node, weight))    
 
+# Створення графа
 graph = Graph()
 graph.add_node('A')
 graph.add_node('B')
@@ -27,6 +29,8 @@ graph.add_edge('B', 'D', 5)
 graph.add_edge('C', 'D', 1)
 graph.add_edge('D', 'E', 3)
 
+
+# Алгоритм Дейкстри для знаходження найкоротших відстаней
 def dijkstra(graph, start):
     distances = {node: float('infinity') for node in graph.nodes}
     distances[start] = 0
@@ -48,7 +52,7 @@ def dijkstra(graph, start):
     
     return distances
 
-
+# Використання алгоритму Дейкстри для знаходження найкоротших відстаней в графі
 start_node = 'A'
 distances = dijkstra(graph, start_node)
 for node in distances:

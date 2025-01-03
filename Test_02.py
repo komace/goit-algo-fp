@@ -1,5 +1,7 @@
 import turtle
 
+
+# Функція для малювання дерева
 def draw_tree(branch_length, level, angle):
     if level == 0:
         return
